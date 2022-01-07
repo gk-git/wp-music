@@ -8,7 +8,7 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A plugin to a custom post type "wp-music" and store related information as genre, tags, and other music related information
+A WordPress plugin to add a custom post type "wp-music" and store related information as genre, tags, and other music related information
 == Description ==
 
 This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
