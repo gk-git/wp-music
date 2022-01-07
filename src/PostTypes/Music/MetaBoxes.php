@@ -9,6 +9,7 @@
 	
 	namespace WPMusic\PostTypes\Music;
 	
+	use WPMusic\CustomTables\CustomPostMeta\CustomPostMeta;
 	// Meta Box Class: Music Information
 	// Get the field value: $metavalue = get_post_meta( $post_id, $field_id, true );
 	class MetaBoxes {
@@ -57,7 +58,7 @@
 		public function add_meta_boxes() {
 			foreach ( $this->screen as $single_screen ) {
 				add_meta_box(
-					'musicinformation',
+					'music_information',
 					__( 'Music Information', 'ssssss' ),
 					array( $this, 'meta_box_callback' ),
 					$single_screen,
@@ -68,7 +69,7 @@
 		}
 		
 		public function meta_box_callback( $post ) {
-			wp_nonce_field( 'musicinformation_data', 'musicinformation_nonce' );
+			wp_nonce_field( 'music_information_data', 'music_information_nonce' );
 			echo 'Where to add music information';
 			$this->field_generator( $post );
 		}
@@ -77,7 +78,7 @@
 			$output = '';
 			foreach ( $this->meta_fields as $meta_field ) {
 				$label      = '<label for="' . $meta_field['id'] . '">' . $meta_field['label'] . '</label>';
-				$meta_value = get_post_meta( $post->ID, $meta_field['id'], true );
+				$meta_value = CustomPostMeta::get_post_meta( $post->ID, $meta_field['id'] );
 				if ( empty( $meta_value ) ) {
 					if ( isset( $meta_field['default'] ) ) {
 						$meta_value = $meta_field['default'];
@@ -112,18 +113,33 @@
 		}
 		
 		public function save_fields( $post_id ) {
-			if ( ! isset( $_POST['musicinformation_nonce'] ) ) {
+			if ( ! isset( $_POST['music_information_nonce'] ) ) {
 				return $post_id;
 			}
-			$nonce = $_POST['musicinformation_nonce'];
-			if ( ! wp_verify_nonce( $nonce, 'musicinformation_data' ) ) {
+			$nonce = $_POST['music_information_nonce'];
+			
+			if ( ! wp_verify_nonce( $nonce, 'music_information_data' ) ) {
 				return $post_id;
 			}
+			
 			if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 				return $post_id;
 			}
-			// TODO: add the code needed for saving to the database
 			
+			foreach ( $this->meta_fields as $meta_field ) {
+				
+				if ( isset( $_POST[ $meta_field['id'] ] ) ) {
+					switch ( $meta_field['type'] ) {
+						case 'email':
+							$_POST[ $meta_field['id'] ] = sanitize_email( $_POST[ $meta_field['id'] ] );
+							break;
+						case 'text':
+							$_POST[ $meta_field['id'] ] = sanitize_text_field( $_POST[ $meta_field['id'] ] );
+							break;
+					}
+					CustomPostMeta::update_post_meta( $post_id, $meta_field['id'], $_POST[ $meta_field['id'] ] );
+				}
+			}
 		}
 	}
 	
