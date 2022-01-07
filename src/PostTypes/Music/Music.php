@@ -7,10 +7,11 @@
 	 * File: MusicPostType.php
 	 */
 	
-	namespace WpMusic\PostTypes;
+	namespace WPMusic\PostTypes\Music;
 	
 	
-	class MusicPostType {
+	
+	class Music {
 		private $domain = 'wp-music';
 		
 		public function __construct( $domain = null ) {

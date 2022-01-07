@@ -7,10 +7,10 @@
 	 * File: MusicTagTaxonomy.php
 	 */
 	
-	namespace WPMusic\Taxonomies;
+	namespace WPMusic\Taxonomies\MusicTag;
 	
 	
-	class MusicTagTaxonomy {
+	class MusicTag {
 		private $domain = 'wp-music';
 		
 		public function __construct( $domain = null ) {

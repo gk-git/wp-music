@@ -7,10 +7,10 @@
 	 * File: GenreTaxonomy.php
 	 */
 	
-	namespace WPMusic\Taxonomies;
+	namespace WPMusic\Taxonomies\Genre;
 	
 	
-	class GenreTaxonomy {
+	class Genre {
 		private $domain = 'wp-music';
 		
 		public function __construct( $domain = null ) {

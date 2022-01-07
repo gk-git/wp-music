@@ -1,8 +1,8 @@
 <?php
 	
-	use WPMusic\PostTypes\MusicPostType;
-	use WPMusic\Taxonomies\GenreTaxonomy;
-	use WPMusic\Taxonomies\MusicTagTaxonomy;
+	use WPMusic\PostTypes\Music\Music;
+	use WPMusic\Taxonomies\Genre\Genre;
+	use WPMusic\Taxonomies\MusicTag\MusicTag;
 	
 	/**
 	 * Created by PhpStorm.
@@ -54,9 +54,9 @@
 		}
 		
 		private function run() {
-			new MusicPostType();
-			new GenreTaxonomy();
-			new MusicTagTaxonomy();
+			new Music();
+			new Genre();
+			new MusicTag();
 		}
 		private function setup_constants() {
 			
