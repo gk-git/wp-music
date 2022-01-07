@@ -30,13 +30,33 @@
 		 */
 		public static function get_post_meta( $post_id, $meta_key, $default = '' ) {
 			global $wpdb;
-			$table  = $wpdb->prefix . self::$table;
-			$result = $wpdb->get_row( "SELECT * FROM $table WHERE post_id = $post_id AND meta_key = '$meta_key'" );
+			$table    = $wpdb->prefix . self::$table;
+			$meta_key = wp_unslash( $meta_key );
+			$result   = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table WHERE post_id = %d AND meta_key = %s",
+				$post_id, $meta_key )  );
 			if ( ! empty( $result ) ) {
 				return $result->meta_value;
 			}
 			
 			return $default;
+		}
+		
+		/**
+		 * @param $meta_key
+		 * @param $meta_value
+		 *
+		 * @return array|object|null
+		 */
+		public static function filter_by_meta_key_and_meta_value( $meta_key, $meta_value ) {
+			global $wpdb;
+			$table      = $wpdb->prefix . self::$table;
+			$meta_key   = wp_unslash( $meta_key );
+			$meta_value = wp_unslash( $meta_value );
+			$results    = $wpdb->get_results( $wpdb->prepare( "SELECT post_id FROM $table WHERE meta_key = %s AND post_id = %d",
+				$meta_key, $meta_value ) );
+			
+			return $results;
+			
 		}
 		
 		/**
