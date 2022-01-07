@@ -68,13 +68,9 @@
 		}
 		
 		private function includes() {
-			if ( defined( 'WP_MUSIC_AUTOLOAD' ) && true === WP_MUSIC_AUTOLOAD ) {
-				
-				if ( file_exists( WP_MUSIC_PLUGIN_DIR . 'vendor/autoload.php' ) ) {
-					// Autoload Required Classes.
-					require_once WP_MUSIC_PLUGIN_DIR . 'vendor/autoload.php';
-				}
-				
+			if ( defined( 'WP_MUSIC_AUTOLOAD' ) && true === WP_MUSIC_AUTOLOAD && file_exists( WP_MUSIC_PLUGIN_DIR . 'vendor/autoload.php' ) ) {
+				// Autoload Required Classes.
+				require_once WP_MUSIC_PLUGIN_DIR . 'vendor/autoload.php';
 			}
 			
 		}
