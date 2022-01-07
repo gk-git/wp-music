@@ -1,0 +1,16 @@
+{
+    "name": "gabykaram/wp-music",
+    "description": "A WordPress plugin to add a custom post type \"wp-music\" and store related information as genre, tags, and other music related information",
+    "autoload": {
+        "psr-4": {
+            "Gabykaram\\WpMusic\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gaby Karam",
+            "email": "info@gabykaram.com"
+        }
+    ],
+    "require": {}
+}
