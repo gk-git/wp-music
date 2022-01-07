@@ -26,57 +26,58 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
-
-/**
- * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
- * Rename this for your plugin and update it as you release new versions.
- */
-define( 'WP_MUSIC_VERSION', '1.0.0' );
-
-/**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-wp-music-activator.php
- */
-function activate_wp_music() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wp-music-activator.php';
-	Wp_Music_Activator::activate();
-}
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-wp-music-deactivator.php
- */
-function deactivate_wp_music() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wp-music-deactivator.php';
-	Wp_Music_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'activate_wp_music' );
-register_deactivation_hook( __FILE__, 'deactivate_wp_music' );
-
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
-require plugin_dir_path( __FILE__ ) . 'includes/class-wp-music.php';
-
-/**
- * Begins execution of the plugin.
- *
- * Since everything within the plugin is registered via hooks,
- * then kicking off the plugin from this point in the file does
- * not affect the page life cycle.
- *
- * @since    1.0.0
- */
-function run_wp_music() {
-
-	$plugin = new Wp_Music();
-	$plugin->run();
-
-}
-run_wp_music();
+	if ( ! defined( 'ABSPATH' ) ) {
+		die;
+	}
+	
+	/**
+	 * The code that runs during plugin activation.
+	 * This action is documented in WPMusicActivator.php
+	 */
+	function activate_wp_music() {
+		require_once plugin_dir_path( __FILE__ ) . 'WPMusicActivator.php';
+		WPMusicActivator::activate();
+	}
+	
+	/**
+	 * The code that runs during plugin deactivation.
+	 * This action is documented in WPMusicDeactivator.php
+	 */
+	function deactivate_wp_music() {
+		require_once plugin_dir_path( __FILE__ ) . 'WPMusicDeactivator.php';
+		WPMusicDeactivator::deactivate();
+	}
+	
+	register_activation_hook( __FILE__, 'activate_wp_music' );
+	register_deactivation_hook( __FILE__, 'deactivate_wp_music' );
+	
+	/**
+	 * The core plugin class that is used to define internationalization,
+	 * admin-specific hooks, and public-facing site hooks.
+	 */
+	if ( ! class_exists( 'WPMusic' ) ) {
+		require_once __DIR__ . '/src/WPMusic.php';
+	}
+	/**
+	 * Begins execution of the plugin.
+	 *
+	 * Since everything within the plugin is registered via hooks,
+	 * then kicking off the plugin from this point in the file does
+	 * not affect the page life cycle.
+	 *
+	 * @since    1.0.0
+	 */
+	if ( ! function_exists( 'wp_music__init' ) ) {
+		/**
+		 * Function that instantiates the plugins main class
+		 *
+		 * @return object
+		 */
+		function wp_music__init() {
+			/**
+			 * Return an instance of the action
+			 */
+			return \WPMusic::instance();
+		}
+	}
+	add_action( 'plugins_loaded', 'wp_music__init', 15 );
