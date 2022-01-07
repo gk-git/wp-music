@@ -1,6 +1,7 @@
 <?php
 	
 	use WPMusic\PostTypes\Music\Music;
+	use WPMusic\Settings\Settings;
 	use WPMusic\Taxonomies\Genre\Genre;
 	use WPMusic\Taxonomies\MusicTag\MusicTag;
 	
@@ -57,6 +58,7 @@
 			new Music();
 			new Genre();
 			new MusicTag();
+			new Settings();
 		}
 		private function setup_constants() {
 			
