@@ -1,4 +1,9 @@
 <?php
+	
+	use WPMusic\PostTypes\MusicPostType;
+	use WPMusic\Taxonomies\GenreTaxonomy;
+	use WPMusic\Taxonomies\MusicTagTaxonomy;
+	
 	/**
 	 * Created by PhpStorm.
 	 * User: gabykaram
@@ -23,6 +28,7 @@
 				self::$instance = new self();
 				self::$instance->setup_constants();
 				self::$instance->includes();
+				self::$instance->run();
 				self::$instance->set_locale();
 				self::$instance->actions();
 				self::$instance->filters();
@@ -47,6 +53,11 @@
 			);
 		}
 		
+		private function run() {
+			new MusicPostType();
+			new GenreTaxonomy();
+			new MusicTagTaxonomy();
+		}
 		private function setup_constants() {
 			
 			// Set main file path.
