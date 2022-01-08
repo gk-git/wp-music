@@ -10,6 +10,7 @@
 	namespace WPMusic\PostTypes\Music;
 	
 	use WPMusic\CustomTables\CustomPostMeta\CustomPostMeta;
+	
 	// Meta Box Class: Music Information
 	// Get the field value: $metavalue = get_post_meta( $post_id, $field_id, true );
 	class MetaBoxes {
@@ -17,40 +18,41 @@
 			'music',
 		);
 		
-		private $meta_fields = array(
-			array(
-				'label' => 'Composer Name',
-				'id'    => 'composer_name',
-				'type'  => 'text',
-			),
-			array(
-				'label' => 'Publisher',
-				'id'    => 'publisher',
-				'type'  => 'text',
-			),
-			array(
-				'label' => 'Year of recording',
-				'id'    => 'year_of_recording',
-				'type'  => 'number',
-			),
-			array(
-				'label' => 'Additional Contributors',
-				'id'    => 'additional_contributors',
-				'type'  => 'textarea',
-			),
-			array(
-				'label' => 'URL',
-				'id'    => 'url',
-				'type'  => 'url',
-			),
-			array(
-				'label' => 'Price',
-				'id'    => 'price',
-				'type'  => 'number',
-			),
-		);
+		private $meta_fields;
 		
 		public function __construct() {
+			$this->meta_fields = array(
+				array(
+					'label' => __( 'Composer Name', 'wp-music' ),
+					'id'    => 'composer_name',
+					'type'  => 'text',
+				),
+				array(
+					'label' => __( 'Publisher', 'wp-music' ),
+					'id'    => 'publisher',
+					'type'  => 'text',
+				),
+				array(
+					'label' => __( 'Year of recording', 'wp-music' ),
+					'id'    => 'year_of_recording',
+					'type'  => 'number',
+				),
+				array(
+					'label' => __( 'Additional Contributors', 'wp-music' ),
+					'id'    => 'additional_contributors',
+					'type'  => 'textarea',
+				),
+				array(
+					'label' => __( 'URL', 'wp-music' ),
+					'id'    => 'url',
+					'type'  => 'url',
+				),
+				array(
+					'label' => __( 'Price', 'wp-music' ),
+					'id'    => 'price',
+					'type'  => 'number',
+				),
+			);
 			add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 			add_action( 'save_post', array( $this, 'save_fields' ) );
 		}
@@ -59,7 +61,7 @@
 			foreach ( $this->screen as $single_screen ) {
 				add_meta_box(
 					'music_information',
-					__( 'Music Information', 'ssssss' ),
+					__( 'Music Information', 'wp-music' ),
 					array( $this, 'meta_box_callback' ),
 					$single_screen,
 					'advanced',
@@ -70,7 +72,7 @@
 		
 		public function meta_box_callback( $post ) {
 			wp_nonce_field( 'music_information_data', 'music_information_nonce' );
-			echo 'Where to add music information';
+			echo __( 'Where to add music information', 'wp-music' );
 			$this->field_generator( $post );
 		}
 		

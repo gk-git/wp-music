@@ -11,12 +11,7 @@
 	
 	
 	class Genre {
-		private $domain = 'wp-music';
-		
-		public function __construct( $domain = null ) {
-			if ( ! empty( $domain ) ) {
-				$this->domain = $domain;
-			}
+		public function __construct() {
 			add_action( 'init', [ $this, 'create_genre_tax' ] );
 		}
 		
@@ -25,21 +20,21 @@
 		public function create_genre_tax() {
 			
 			$labels = array(
-				'name'              => _x( 'Genres', 'taxonomy general name', $this->domain ),
-				'singular_name'     => _x( 'Genre', 'taxonomy singular name', $this->domain ),
-				'search_items'      => __( 'Search Genres', $this->domain ),
-				'all_items'         => __( 'All Genres', $this->domain ),
-				'parent_item'       => __( 'Parent Genre', $this->domain ),
-				'parent_item_colon' => __( 'Parent Genre:', $this->domain ),
-				'edit_item'         => __( 'Edit Genre', $this->domain ),
-				'update_item'       => __( 'Update Genre', $this->domain ),
-				'add_new_item'      => __( 'Add New Genre', $this->domain ),
-				'new_item_name'     => __( 'New Genre Name', $this->domain ),
-				'menu_name'         => __( 'Genre', $this->domain ),
+				'name'              => _x( 'Genres', 'taxonomy general name', 'wp-music'),
+				'singular_name'     => _x( 'Genre', 'taxonomy singular name', 'wp-music'),
+				'search_items'      => __( 'Search Genres', 'wp-music'),
+				'all_items'         => __( 'All Genres', 'wp-music'),
+				'parent_item'       => __( 'Parent Genre', 'wp-music'),
+				'parent_item_colon' => __( 'Parent Genre:', 'wp-music'),
+				'edit_item'         => __( 'Edit Genre', 'wp-music'),
+				'update_item'       => __( 'Update Genre', 'wp-music'),
+				'add_new_item'      => __( 'Add New Genre', 'wp-music'),
+				'new_item_name'     => __( 'New Genre Name', 'wp-music'),
+				'menu_name'         => __( 'Genre', 'wp-music'),
 			);
 			$args   = array(
 				'labels'             => $labels,
-				'description'        => __( 'Music Genres', $this->domain ),
+				'description'        => __( 'Music Genres', 'wp-music'),
 				'hierarchical'       => true,
 				'public'             => true,
 				'publicly_queryable' => true,

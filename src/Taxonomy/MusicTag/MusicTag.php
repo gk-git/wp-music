@@ -11,12 +11,7 @@
 	
 	
 	class MusicTag {
-		private $domain = 'wp-music';
-		
-		public function __construct( $domain = null ) {
-			if ( ! empty( $domain ) ) {
-				$this->domain = $domain;
-			}
+		public function __construct() {
 			add_action( 'init', [ $this, 'create_music_tag_tax' ] );
 		}
 		
@@ -25,21 +20,21 @@
 		public function create_music_tag_tax() {
 			
 			$labels = array(
-				'name'              => _x( 'Music Tags', 'taxonomy general name', $this->domain ),
-				'singular_name'     => _x( 'Music Tag', 'taxonomy singular name', $this->domain ),
-				'search_items'      => __( 'Search Music Tags', $this->domain ),
-				'all_items'         => __( 'All Music Tags', $this->domain ),
-				'parent_item'       => __( 'Parent Music Tag', $this->domain ),
-				'parent_item_colon' => __( 'Parent Music Tag:', $this->domain ),
-				'edit_item'         => __( 'Edit Music Tag', $this->domain ),
-				'update_item'       => __( 'Update Music Tag', $this->domain ),
-				'add_new_item'      => __( 'Add New Music Tag', $this->domain ),
-				'new_item_name'     => __( 'New Music Tag Name', $this->domain ),
-				'menu_name'         => __( 'Music Tag', $this->domain ),
+				'name'              => _x( 'Music Tags', 'taxonomy general name', 'wp-music' ),
+				'singular_name'     => _x( 'Music Tag', 'taxonomy singular name', 'wp-music' ),
+				'search_items'      => __( 'Search Music Tags', 'wp-music' ),
+				'all_items'         => __( 'All Music Tags', 'wp-music' ),
+				'parent_item'       => __( 'Parent Music Tag', 'wp-music' ),
+				'parent_item_colon' => __( 'Parent Music Tag:', 'wp-music' ),
+				'edit_item'         => __( 'Edit Music Tag', 'wp-music' ),
+				'update_item'       => __( 'Update Music Tag', 'wp-music' ),
+				'add_new_item'      => __( 'Add New Music Tag', 'wp-music' ),
+				'new_item_name'     => __( 'New Music Tag Name', 'wp-music' ),
+				'menu_name'         => __( 'Music Tag', 'wp-music' ),
 			);
 			$args   = array(
 				'labels'             => $labels,
-				'description'        => __( 'Where to add music tags', $this->domain ),
+				'description'        => __( 'Where to add music tags', 'wp-music' ),
 				'hierarchical'       => false,
 				'public'             => true,
 				'publicly_queryable' => true,

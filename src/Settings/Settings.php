@@ -18,18 +18,19 @@
 		}
 		
 		public function create_settings() {
-			$page_title = 'Music Settings';
-			$menu_title = 'Settings';
+			$page_title = __( 'Music Settings', 'wp-music' );
+			$menu_title = __( 'Settings', 'wp-music' );
 			$capability = 'manage_options';
-			$slug = 'music_settings';
-			$callback = array($this, 'settings_content');
-			add_submenu_page('edit.php?post_type=music',$page_title, $menu_title, $capability, $slug, $callback);
+			$slug       = 'music_settings';
+			$callback   = array( $this, 'settings_content' );
+			add_submenu_page( 'edit.php?post_type=music', $page_title, $menu_title, $capability, $slug, $callback );
 		}
 		
 		public function settings_content() { ?>
             <div class="wrap">
-                <h1>Music Settings</h1>
+                <h1><?php echo __( 'Music Settings', 'wp-music' ); ?></h1>
 				<?php settings_errors(); ?>
+                <!--                //TODO: fix the options.php url because some systems might have different url for options.php-->
                 <form method="POST" action="options.php">
 				<?php
 					settings_fields( 'music_settings' );
@@ -38,25 +39,26 @@
 				?>
                 </form>
             </div>
-            <?php
+			<?php
 		}
 		
 		public function setup_sections() {
-			add_settings_section( 'music_settings_section', 'Change the ', array(), 'music_settings' );
+			add_settings_section( 'music_settings_section', __( 'Change the ', 'wp-music' ), array(),
+				'music_settings' );
 		}
 		
 		public function setup_fields() {
 			$fields = array(
 				array(
-					'label' => 'Music currency',
-					'id' => 'music_currency',
-					'type' => 'text',
+					'label'   => __( 'Music currency', 'wp-music' ),
+					'id'      => 'music_currency',
+					'type'    => 'text',
 					'section' => 'music_settings_section',
 				),
 				array(
-					'label' => 'Number of musics displayed per page',
-					'id' => 'music_per_page',
-					'type' => 'number',
+					'label'   => __( 'Number of musics displayed per page', 'wp-music' ),
+					'id'      => 'music_per_page',
+					'type'    => 'number',
 					'section' => 'music_settings_section',
 				),
 			);

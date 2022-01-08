@@ -87,35 +87,48 @@
 				                $price                   = CustomPostMeta::get_post_meta( $post_id, 'price' );
 				
 				                ?>
-				                <div class="music">
+                                <div class="music">
 					                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					                <div class="music__meta">
-						                <span class="music__meta__label">Composer Name:</span>
+						                <span class="music__meta__label">
+                                            <?php echo __( 'Composer Name:', 'wp-music' ); ?>
+                                        </span>
 						                <span class="music__meta__value"><?php echo $composer_name ?></span>
 					                </div>
 					                <div class="music__meta">
-						                <span class="music__meta__label">Publisher:</span>
+						                <span class="music__meta__label">
+                                            <?php echo __( 'Publisher:', 'wp-music' ); ?>
+                                        </span>
 						                <span class="music__meta__value"><?php echo $publisher ?></span>
 					                </div>
 					                <div class="music__meta">
-						                <span class="music__meta__label">Year of Recording:</span>
+						                <span class="music__meta__label">
+                                            <?php echo __( 'Year of Recording:', 'wp-music' ); ?>
+                                        </span>
 						                <span class="music__meta__value"><?php echo $year_of_recording ?></span>
 					                </div>
 					                <div class="music__meta">
-						                <span class="music__meta__label">Additional Contributors:</span>
+						                <span class="music__meta__label">
+                                            <?php echo __( 'Additional Contributors:', 'wp-music' ); ?>
+                                        </span>
 						                <span class="music__meta__value"><?php echo $additional_contributors ?></span>
 					                </div>
 					                
 					                <div class="music__meta">
-						                <span class="music__meta__label">URL:</span>
-						                <span class="music__meta__value"><a href="<?php echo $url ?>"
-                                                                            target="_blank"><?php echo $url ?></a></span>
+						                <span class="music__meta__label">
+                                            <?php echo __( 'URL:', 'wp-music' ); ?>
+                                        </span>
+						                <span class="music__meta__value">
+                                            <a href="<?php echo $url ?>" target="_blank">
+                                                <?php echo $url ?>
+                                            </a>
+                                        </span>
 					                </div>
 					                
 					                <div class="music__meta">
 						                <span class="music__meta__label">Price:</span>
 						                <span
-                                                class="music__meta__value"><?php echo $price ?> <?php echo $music_currency ?></span>
+                                                class="music__meta__value"><?php echo $price ?><?php echo $music_currency ?></span>
 					                </div>
 					                
 				                </div>
@@ -132,8 +145,8 @@
 			} else {
 				ob_start();
 				?>
-				<div class="music-shortcode not-music-found">
-					No Musics are currently available
+                <div class="music-shortcode not-music-found">
+					<?php echo __( 'No Musics are currently available', 'wp-music' ); ?>
 				</div>
 				<?php
 				return ob_get_clean();
