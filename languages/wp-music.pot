@@ -1,0 +1,311 @@
+# Copyright (C) 2022 WPMusic
+# This file is distributed under the same license as the WPMusic package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WPMusic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Gaby Karam <info@gabykaram.com>\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../src/Settings/Settings.php:21, ../src/Settings/Settings.php:31
+msgid "Music Settings"
+msgstr ""
+
+#: ../src/Settings/Settings.php:22
+msgid "Settings"
+msgstr ""
+
+#: ../src/Settings/Settings.php:46
+msgid "Change the "
+msgstr ""
+
+#: ../src/Settings/Settings.php:53
+msgid "Music currency"
+msgstr ""
+
+#: ../src/Settings/Settings.php:59
+msgid "Number of musics displayed per page"
+msgstr ""
+
+#: ../src/PostTypes/Music/MetaBoxes.php:26
+msgid "Composer Name"
+msgstr ""
+
+#: ../src/PostTypes/Music/MetaBoxes.php:31
+msgid "Publisher"
+msgstr ""
+
+#: ../src/PostTypes/Music/MetaBoxes.php:36
+msgid "Year of recording"
+msgstr ""
+
+#: ../src/PostTypes/Music/MetaBoxes.php:41
+msgid "Additional Contributors"
+msgstr ""
+
+#: ../src/PostTypes/Music/MetaBoxes.php:46
+msgid "URL"
+msgstr ""
+
+#: ../src/PostTypes/Music/MetaBoxes.php:51
+msgid "Price"
+msgstr ""
+
+#: ../src/PostTypes/Music/MetaBoxes.php:64
+msgid "Music Information"
+msgstr ""
+
+#: ../src/PostTypes/Music/MetaBoxes.php:75
+msgid "Where to add music information"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:25
+msgctxt "Post Type General Name"
+msgid "Musics"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:26
+msgctxt "Post Type Singular Name"
+msgid "Music"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:27
+msgctxt "Admin Menu text"
+msgid "Musics"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:28
+msgctxt "Add New on Toolbar"
+msgid "Music"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:29
+msgid "Music Archives"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:30
+msgid "Music Attributes"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:31
+msgid "Parent Music:"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:32
+msgid "All Musics"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:33
+msgid "Add New Music"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:34
+msgid "Add New"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:35
+msgid "New Music"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:36
+msgid "Edit Music"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:37
+msgid "Update Music"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:38
+msgid "View Music"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:39
+msgid "View Musics"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:40
+msgid "Search Music"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:41
+msgid "Not found"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:42
+msgid "Not found in Trash"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:43
+msgid "Featured Image"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:44
+msgid "Set featured image"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:45
+msgid "Remove featured image"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:46
+msgid "Use as featured image"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:47
+msgid "Insert into Music"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:48
+msgid "Uploaded to this Music"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:49
+msgid "Musics list"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:50
+msgid "Musics list navigation"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:51
+msgid "Filter Musics list"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:54
+msgid "Music"
+msgstr ""
+
+#: ../src/PostTypes/Music/Music.php:55
+msgid "Where to add music informations"
+msgstr ""
+
+#: ../src/PostTypes/Music/Shortcode.php:149
+msgid "No Musics are currently available"
+msgstr ""
+
+#: ../src/PostTypes/Music/Shortcode.php:94
+msgid "Composer Name:"
+msgstr ""
+
+#: ../src/PostTypes/Music/Shortcode.php:100
+msgid "Publisher:"
+msgstr ""
+
+#: ../src/PostTypes/Music/Shortcode.php:106
+msgid "Year of Recording:"
+msgstr ""
+
+#: ../src/PostTypes/Music/Shortcode.php:112
+msgid "Additional Contributors:"
+msgstr ""
+
+#: ../src/PostTypes/Music/Shortcode.php:119
+msgid "URL:"
+msgstr ""
+
+#: ../src/Taxonomy/Genre/Genre.php:23
+msgctxt "taxonomy general name"
+msgid "Genres"
+msgstr ""
+
+#: ../src/Taxonomy/Genre/Genre.php:24
+msgctxt "taxonomy singular name"
+msgid "Genre"
+msgstr ""
+
+#: ../src/Taxonomy/Genre/Genre.php:25
+msgid "Search Genres"
+msgstr ""
+
+#: ../src/Taxonomy/Genre/Genre.php:26
+msgid "All Genres"
+msgstr ""
+
+#: ../src/Taxonomy/Genre/Genre.php:27
+msgid "Parent Genre"
+msgstr ""
+
+#: ../src/Taxonomy/Genre/Genre.php:28
+msgid "Parent Genre:"
+msgstr ""
+
+#: ../src/Taxonomy/Genre/Genre.php:29
+msgid "Edit Genre"
+msgstr ""
+
+#: ../src/Taxonomy/Genre/Genre.php:30
+msgid "Update Genre"
+msgstr ""
+
+#: ../src/Taxonomy/Genre/Genre.php:31
+msgid "Add New Genre"
+msgstr ""
+
+#: ../src/Taxonomy/Genre/Genre.php:32
+msgid "New Genre Name"
+msgstr ""
+
+#: ../src/Taxonomy/Genre/Genre.php:33
+msgid "Genre"
+msgstr ""
+
+#: ../src/Taxonomy/Genre/Genre.php:37
+msgid "Music Genres"
+msgstr ""
+
+#: ../src/Taxonomy/MusicTag/MusicTag.php:23
+msgctxt "taxonomy general name"
+msgid "Music Tags"
+msgstr ""
+
+#: ../src/Taxonomy/MusicTag/MusicTag.php:24
+msgctxt "taxonomy singular name"
+msgid "Music Tag"
+msgstr ""
+
+#: ../src/Taxonomy/MusicTag/MusicTag.php:25
+msgid "Search Music Tags"
+msgstr ""
+
+#: ../src/Taxonomy/MusicTag/MusicTag.php:26
+msgid "All Music Tags"
+msgstr ""
+
+#: ../src/Taxonomy/MusicTag/MusicTag.php:27
+msgid "Parent Music Tag"
+msgstr ""
+
+#: ../src/Taxonomy/MusicTag/MusicTag.php:28
+msgid "Parent Music Tag:"
+msgstr ""
+
+#: ../src/Taxonomy/MusicTag/MusicTag.php:29
+msgid "Edit Music Tag"
+msgstr ""
+
+#: ../src/Taxonomy/MusicTag/MusicTag.php:30
+msgid "Update Music Tag"
+msgstr ""
+
+#: ../src/Taxonomy/MusicTag/MusicTag.php:31
+msgid "Add New Music Tag"
+msgstr ""
+
+#: ../src/Taxonomy/MusicTag/MusicTag.php:32
+msgid "New Music Tag Name"
+msgstr ""
+
+#: ../src/Taxonomy/MusicTag/MusicTag.php:33
+msgid "Music Tag"
+msgstr ""
+
+#: ../src/Taxonomy/MusicTag/MusicTag.php:37
+msgid "Where to add music tags"
+msgstr ""
