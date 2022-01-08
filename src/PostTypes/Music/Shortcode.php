@@ -7,7 +7,7 @@
 	 * File: Shortcode.php
 	 */
 	
-	namespace WPMusic\PostType\Music;
+	namespace WPMusic\PostTypes\Music;
 	
 	use WPMusic\CustomTables\CustomPostMeta\CustomPostMeta;
 	
@@ -27,9 +27,9 @@
 			);
 			
 			// Attributes in var
-			$year  = $attributes['year'];
-			$genre = $attributes['genre'];
-			
+			$year     = $attributes['year'];
+			$genre    = $attributes['genre'];
+			$post_ids = [];
 			if ( ! empty( $atts['year'] ) ) {
 				$results = CustomPostMeta::filter_by_meta_key_and_meta_value( 'year_of_recording', $year );
 				
@@ -67,6 +67,8 @@
 			
 			$wp_query = new \WP_Query( $post_args );
 			if ( $wp_query->have_posts() ) {
+				ob_start();
+				
 				?>
 				<div class="music-shortcode">
 	                <div class="musics">
@@ -74,7 +76,6 @@
 		                <?php
 			                while ( $wp_query->have_posts() ) {
 				                $wp_query->the_post();
-				                ob_start();
 				                $post_id                 = get_the_ID();
 				                $composer_name           = CustomPostMeta::get_post_meta( $post_id, 'composer_name' );
 				                $publisher               = CustomPostMeta::get_post_meta( $post_id, 'publisher' );
@@ -107,27 +108,27 @@
 					                
 					                <div class="music__meta">
 						                <span class="music__meta__label">URL:</span>
-						                <span class="music__meta__value"><?php echo $url ?></span>
+						                <span class="music__meta__value"><a href="<?php echo $url ?>"
+                                                                            target="_blank"><?php echo $url ?></a></span>
 					                </div>
 					                
 					                <div class="music__meta">
 						                <span class="music__meta__label">Price:</span>
 						                <span
-							                class="music__meta__value"><?php echo $price ?><?php echo $music_currency ?></span>
+                                                class="music__meta__value"><?php echo $price ?> <?php echo $music_currency ?></span>
 					                </div>
 					                
 				                </div>
 				
 				
 				                <?php
-				                $this->render_pagination( $wp_query->max_num_pages, $paged );
-				
-				                return ob_get_clean();
+				                echo $this->render_pagination( $wp_query->max_num_pages, $paged );
 			                }
 		                ?>
 	                </div>
 				</div>
 				<?php
+				return ob_get_clean();
 			} else {
 				ob_start();
 				?>
@@ -140,7 +141,7 @@
 			
 		}
 		
-		private function render_pagination( $num_pages = 1, $paged = '' ) {
+		private function render_pagination( $num_pages = 1, $paged = 1 ) {
 			$pagination_args = array(
 				'format'       => 'page/%#%',
 				'total'        => $num_pages,

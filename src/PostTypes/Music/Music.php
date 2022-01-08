@@ -21,6 +21,7 @@
 			
 			add_action( 'init', [ $this, 'create_custom_post_type_music' ], 0 );
 			new MetaBoxes();
+			new Shortcode();
 		}
 		
 		// Register Custom Post Type Music
