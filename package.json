@@ -1,0 +1,13 @@
+{
+  "name": "wp-auto-pot",
+  "version": "1.0.0",
+  "description": "Auto generate WordPress .pot files from i18n and l10n",
+  "scripts": {
+    "pot": "wp-pot --src '**/*.php' --dest-file 'languages/wp-music.pot' --package 'WPMusic' --domain 'wp-music' --last-translator 'Gaby Karam <info@gabykaram.com>'"
+  },
+  "author": "Gaby Karam",
+  "license": "MIT",
+  "devDependencies": {
+    "wp-pot-cli": "^1.5.0"
+  }
+}
